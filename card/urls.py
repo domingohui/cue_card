@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
+    # return scripts GET
     url(r'^start/(?P<course>.+)/$', views.presentCardsFromThisCourse, name='present_card'),
 ]
