@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.contrib import admin
+from django.conf.urls import url
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.index),
     # return scripts GET
     url(r'^start/(?P<course>.+)/$', views.presentCardsFromThisCourse, name='present_card'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# Code above only works in Debug mode
+# For production, use python manage.py collectstaic to properly manage files
