@@ -9,3 +9,4 @@ to create DB
 # ToDo
 - [ ] React templates front-end - in progress
 - [ ] Functionality to add/remove cards
+- [ ] Use cache to fetch cards
