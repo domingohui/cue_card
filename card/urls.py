@@ -20,8 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.index),
-    # return scripts GET
     url(r'^start/(?P<course>.+)/$', views.presentCardsFromThisCourse, name='present_card'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-# Code above only works in Debug mode
+# Code above only works in Debug mode to return scripts GET
 # For production, use python manage.py collectstaic to properly manage files

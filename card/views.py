@@ -3,7 +3,6 @@ from .serializer import Serializer
 
 # Create your views here.
 
-
 def presentCardsFromThisCourse(request, course):
 
 	# Get cue card info

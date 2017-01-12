@@ -14,4 +14,4 @@ class Card (models.Model):
     other_side = models.TextField(default='')
     # Misc fields (not set by users)
     view_counter = models.IntegerField(default=0)
-    card_id = models.CharField(max_length=15, default='')
+    card_id = models.CharField(max_length=20, default='')
