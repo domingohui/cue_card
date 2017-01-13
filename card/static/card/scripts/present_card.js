@@ -1,7 +1,7 @@
 class CardDisplay extends React.Component {
     render () {
         return (
-            <div>HELLO WORLD!</div>
+            <div>{ initialData }</div>
         );
     }
 }
