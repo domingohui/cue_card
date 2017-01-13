@@ -1,1 +1,21 @@
-{{data}}
+<!doctype html>
+<html lang="en">
+    <body>
+        <div id="errors" 
+             style="
+             background: #c00;
+             color: #fff;
+             display: none;
+             margin: -20px -20px 20px;
+             padding: 20px;
+             white-space: pre-wrap;
+             "></div>
+        <div id="card_display"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-with-addons.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        {% load static %}
+        <script src="{% static "card/scripts/present_card.js" %}" type="text/babel"></script>
+    </body>
+</html>
