@@ -16,10 +16,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
         {% load static %}
-        <script src="{% static "card/scripts/present_card.js" %}" type="text/babel">
+        <script>
             // Load data from Django server to a global
             // Probably not the best way to do it, but still experimenting it 
             window.initialData = {{ data|safe }};
         </script>
+        <script src="{% static "card/scripts/present_card.js" %}" type="text/babel"></script>
     </body>
 </html>
