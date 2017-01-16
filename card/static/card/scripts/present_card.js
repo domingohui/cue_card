@@ -2,15 +2,29 @@
 
 class Card extends React.Component {
 
-    constructor () {
-        super();
+    constructor (props) {
+        // React.Compoenent classes should call the base class ctor with props
+        super(props); 
+        
         // Store card data passed to this Card 
+        // Ctor is the only place to ASSIGN to this.state
+        // Use this.setState({...}) elsewhere
         this.state = {
-            card: ( (this.props.card)? this.props.card : null ),
-            display: ( (this.state.card===null) ? '' : this.state.card.cue_side ),
+            card: props.card, 
+            display: ( (props.card===null) ? '' : props.card.other_side ),
             showing_cue: true,
         }
     }
+
+    /* debug
+    componentWillMount () {
+        alert("Will mount");
+    }
+
+    componentDidMount () {
+        alert("Did mount");
+    }
+    */
 
     switch_side () {
         if ( this.state.card.showing_cue )
