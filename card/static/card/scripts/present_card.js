@@ -12,8 +12,11 @@ class Card extends React.Component {
         this.card = props.card;
         this.showing_cue = true;
         // this.state only contains what is visually rendered
-        this.state = {
-            display: ( (props.card===null) ? '' : props.card.other_side ),
+        if ( this.card ) {
+            this.state = {
+                cue_side: this.card.cue_side,
+                other_side: this.card.other_side,
+            }
         }
     }
 
@@ -27,18 +30,19 @@ class Card extends React.Component {
     }
     */
 
-    switch_side () {
-        if ( this.showing_cue )
-            this.setState ( { display: this.card.other_side } );
-        else
-            this.setState ( { display: this.card.cue_side } );
+    flip () {
         this.showing_cue = !this.showing_cue;
     }
 
     render () {
-         return (
-            <div onClick= { () => { this.switch_side() } } >
-            { this.state.display }
+        return (
+            <div className={"card" + (this.showing_cue? "" : " flipped")} onClick={()=>{this.flip()}}>
+            <div className="front">
+            { this.state.cue_side}
+            </div>
+            <div className="back">
+            { this.state.other_side}
+            </div>
             </div>
         );
     }
@@ -68,16 +72,18 @@ class CardDisplay extends React.Component {
 
     render () {
         return (
+            <div className="cardDisplay">
             <Card card={this.fetchCardData()} />
+            </div>
         );
     }
 }
 
 ReactDOM.render (
     <CardDisplay />,
-    document.getElementById ('card_display')
+    document.getElementById ('container')
 );
 
 function getRandomInt (min, max ) {
-    return Math.floor ( Math.random() * max + 1 );
+    return Math.floor ( Math.random() * max + min );
 }

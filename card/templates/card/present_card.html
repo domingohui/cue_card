@@ -10,17 +10,22 @@
              padding: 20px;
              white-space: pre-wrap;
              "></div>
-        <div id="card_display"></div>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-with-addons.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
         {% load static %}
         <script>
-            // Load data from Django server to a global
-            // Probably not the best way to do it, but still experimenting it 
-            window.initialData = {{ data|safe }};
+// Load data from Django server to a global
+// Probably not the best way to do it, but still experimenting it 
+window.initialData = {{ data|safe }};
         </script>
         <script src="{% static "card/scripts/present_card.js" %}" type="text/babel"></script>
+
+        <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+            {% load static %}
+            <link rel="stylesheet" href="{% static "card/css/present_card.css" %}">
+            <div id="container"></div>
+        </head>
     </body>
 </html>
