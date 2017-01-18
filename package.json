@@ -1,0 +1,10 @@
+{ 
+    "name": "cue_card",
+    "version": "1.0",
+    "repository": "https://github.com/domingohui/cue_card",
+    "dependencies":
+    {
+        "react": "15.4.2",
+        "react-dom": "15.4.2"
+    }
+}

@@ -97,3 +97,8 @@ ENV/
 
 # Vim
 *.swp
+
+# Node dependencies
+node_modules/
+yarn.lock
+.yarn-integrity
