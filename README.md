@@ -17,7 +17,7 @@ Then
 - Card: a Django Model to store a card's data
 - (JSON)Serializer: provides a two-way channel to fetch/update cards
 - Also provides a way to store user's metrics
-Note: This is a simple framework that provides a simple API for now. Will integrate Django REST Framework very soon!
+- Note: This is a simple framework that provides a simple API for now. Will integrate Django REST Framework very soon!
 
 # ToDo
 - [ ] Controls
