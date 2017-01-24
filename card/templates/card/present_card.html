@@ -11,21 +11,8 @@
              white-space: pre-wrap;
              "></div>
         {% load static %}
-        <script src="{% static "card/node_modules/react/dist/react-with-addons.min.js" %}"></script>
-        {% load static %}
-        <script src="{% static "card/node_modules/react-dom/dist/react-dom.min.js" %}"></script>
-        {% load static %}
-        <script src="{% static "card/node_modules/babel-preset-react/lib/index.js" %}"></script>
-<script>
-// Load data from Django server to a global
-// Probably not the best way to do it, but still experimenting it 
-window.initialData = {{ data|safe }};
-        </script>
-        <script src="{% static "card/scripts/present_card.js" %}" type="text/babel"></script>
-
+        <script src="{% static "card/frontend_bundled.js" %}"></script>
         <head>
-            {% load static %}
-            <link rel="stylesheet" href="{% static "card/css/present_card.css" %}">
             <div id="container"></div>
         </head>
     </body>

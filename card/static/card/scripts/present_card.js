@@ -1,5 +1,9 @@
 'use strict';
 
+const React = require('react');
+const ReactDOM = requrie('react-dom');
+const Style = require('../css/present_card.css');
+
 class Card extends React.Component {
 
     constructor (props) {

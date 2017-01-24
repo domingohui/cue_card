@@ -98,7 +98,11 @@ ENV/
 # Vim
 *.swp
 
-# Node dependencies
+# nodejs
 node_modules/
 yarn.lock
 .yarn-integrity
+npm-debug.log
+
+# webpack
+card/static/card/build
