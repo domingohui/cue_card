@@ -1,8 +1,8 @@
 'use strict';
 
-const React = require('react');
-const ReactDOM = requrie('react-dom');
-const Style = require('../css/present_card.css');
+import React from 'react';
+import {render} from 'react-dom';
+//import 'style!../css/present_card.css';
 
 class Card extends React.Component {
 
@@ -40,7 +40,7 @@ class Card extends React.Component {
 
     render () {
         return (
-            <div className={"card" + (this.showing_cue? "" : " flipped")} onClick={()=>{this.flip()}}>
+            <div className={"card" + (this.showing_cue? "" : " flipped")} onClick={()=>this.flip()}>
             <div className="front">
             { this.state.cue_side}
             </div>
@@ -83,11 +83,16 @@ class CardDisplay extends React.Component {
     }
 }
 
-ReactDOM.render (
-    <CardDisplay />,
-    document.getElementById ('container')
-);
-
 function getRandomInt (min, max ) {
     return Math.floor ( Math.random() * max + min );
 }
+
+function fectchData () {
+    console.log(COURSE_NAME);
+}
+
+this.fetchData();
+render (
+    <CardDisplay />,
+    document.getElementById ('container')
+);

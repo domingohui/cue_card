@@ -10,10 +10,11 @@
              padding: 20px;
              white-space: pre-wrap;
              "></div>
-        {% load static %}
-        <script src="{% static "card/frontend_bundled.js" %}"></script>
         <head>
             <div id="container"></div>
+            {% load static %}
+            <script src="{% static "card/build/frontend_bundle.js" %}"></script>
+            <script>var COURSE_NAME = "{{course_name}}"</script>
         </head>
     </body>
 </html>
