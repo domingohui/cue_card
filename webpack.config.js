@@ -1,19 +1,23 @@
+const path = require('path');
 const webpack = require('webpack');
+
 module.exports=
 {
     entry: './card/static/card/scripts/present_card.js',
     module: {
         loaders: [
             {
-                test: /\.js?$/,
+                test: /\.js$/,
                 loader: 'babel-loader',
+                include: path.resolve(__dirname, './card/static/card/scripts'),
                 exclude: /node_modules/,
                 query: {
-                    presets: ["react"]
+                    presets: ["es2015", "react"]
                 }
             },
             {
-                test: '\.css$',
+                test: /\.css$/,
+                include: path.resolve(__dirname, './card/static/card/css'),
                 loader: 'css-loader!style-loader'
             },
         ]
