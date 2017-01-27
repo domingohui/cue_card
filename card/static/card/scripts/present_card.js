@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {render} from 'react-dom';
-//import 'style!../css/present_card.css';
+import $ from 'jquery';
 
 class Card extends React.Component {
 
@@ -87,11 +87,13 @@ function getRandomInt (min, max ) {
     return Math.floor ( Math.random() * max + min );
 }
 
-function fectchData () {
-    console.log(COURSE_NAME);
+function fetchData () {
+    $.get('get_cards/' + window.COURSE_NAME, function (data) {
+        alert(data);
+    });
 }
 
-this.fetchData();
+fetchData();
 render (
     <CardDisplay />,
     document.getElementById ('container')

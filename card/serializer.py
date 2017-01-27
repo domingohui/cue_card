@@ -55,10 +55,10 @@ class Serializer:
     # Feching data FROM DB
     def getAvailableCourses(self):
         allCards = Card.objects.all()
-        courses = set()
+        self.courses = set()
         for card in allCards:
-            courses.add(card.course)
-        return courses
+            self.courses.add(card.course)
+        return self.courses
 
     def getAllCards(self, course_name=''):
         return
