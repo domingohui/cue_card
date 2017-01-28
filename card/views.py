@@ -16,7 +16,9 @@ def index(request):
 
 def getCardData (request):
     data = ''
+    print('gettin cards')
     if request.method == 'GET':
         serializer = Serializer.makeSerializer(Serializer.JSON)
+        print (request.GET['course'] );
         data = serializer.getAllCards(request.GET['course']);
     return JsonRespone(data)
