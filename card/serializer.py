@@ -81,6 +81,7 @@ class JSONCardSerializer (Serializer):
     # Fetching data FROM DB
     def getAllCards(self, course_name = ''):
         # Fetch cards and TODO:cache them
+        # Returns a dict
         if course_name == '':
             self.allCards = Card.objects.all()
         else:
@@ -90,4 +91,4 @@ class JSONCardSerializer (Serializer):
             card_dict = card.__dict__
             card_dict.pop('_state')
             self.json_data.append(card_dict)
-        return json.dumps(self.json_data)
+        return card_dict

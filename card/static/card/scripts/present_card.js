@@ -88,7 +88,7 @@ function getRandomInt (min, max ) {
 }
 
 function fetchData () {
-    $.get('/get_cards/' + window.COURSE_NAME + "/", function (data) {
+    $.get('/get_cards', {'course': window.COURSE_NAME},  function (data) {
         alert(data);
     });
 }
