@@ -89,7 +89,9 @@ function getRandomInt (min, max ) {
 
 function fetchInitialData () {
     $.get('/get_cards', {'course': window.COURSE_NAME},  function (data) {
-        window.initialData = data;
+        window.initialData = [];
+        window.initialData.push(data);
+        console.log(window.initialData);
         render (
             <CardDisplay />,
             document.getElementById ('container')
