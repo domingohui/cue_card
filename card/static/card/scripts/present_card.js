@@ -3,6 +3,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import $ from 'jquery';
+import css from 'materialize-css';
 
 class Card extends React.Component {
 
@@ -90,8 +91,7 @@ function getRandomInt (min, max ) {
 function fetchInitialData () {
     $.get('/get_cards', {'course': window.COURSE_NAME},  function (data) {
         window.initialData = [];
-        window.initialData.push(data);
-        console.log(window.initialData);
+        window.initialData;
         render (
             <CardDisplay />,
             document.getElementById ('container')
