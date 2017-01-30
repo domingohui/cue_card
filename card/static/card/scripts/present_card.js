@@ -87,14 +87,14 @@ function getRandomInt (min, max ) {
     return Math.floor ( Math.random() * max + min );
 }
 
-function fetchData () {
+function fetchInitialData () {
     $.get('/get_cards', {'course': window.COURSE_NAME},  function (data) {
-        alert(data);
+        window.initialData = data;
+        render (
+            <CardDisplay />,
+            document.getElementById ('container')
+        );
     });
 }
 
-fetchData();
-render (
-    <CardDisplay />,
-    document.getElementById ('container')
-);
+fetchInitialData();
