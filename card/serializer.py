@@ -67,7 +67,7 @@ class Serializer:
 class JSONCardSerializer (Serializer):
 
     def __init__(self):
-        self.json_data = list()
+        self.json_data = {'data': list()}
         self.savedThisCard = False
         self.currentCard = None
 
@@ -90,5 +90,5 @@ class JSONCardSerializer (Serializer):
         for card in self.allCards:
             card_dict = card.__dict__
             card_dict.pop('_state')
-            self.json_data.append(card_dict)
-        return card_dict
+            self.json_data['data'].append(card_dict)
+        return self.json_data

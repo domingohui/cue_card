@@ -2,8 +2,8 @@
 
 import React from 'react';
 import {render} from 'react-dom';
-import $ from 'jquery';
-import css from 'materialize-css';
+window.$ = require('jquery');
+require ('materialize-css/sass/materialize.scss');
 
 class Card extends React.Component {
 
@@ -19,8 +19,7 @@ class Card extends React.Component {
         // this.state only contains what is visually rendered
         if ( this.card ) {
             this.state = {
-                cue_side: this.card.cue_side,
-                other_side: this.card.other_side,
+                display: this.card.cue_side
             }
         }
     }
@@ -36,18 +35,47 @@ class Card extends React.Component {
     */
 
     flip () {
+        if ( this.showing_cue ) {
+            this.setState ({
+                display: this.card.other_side
+            });
+        }
+        else {
+            this.setState ({
+                display: this.card.cue_side
+            });
+        }
         this.showing_cue = !this.showing_cue;
     }
 
     render () {
         return (
-            <div className={"card" + (this.showing_cue? "" : " flipped")} onClick={()=>this.flip()}>
-            <div className="front">
-            { this.state.cue_side}
+            <div>
+                <div className="row">
+                    <div className="col s12 m5">
+                        <div className="card-panel teal">
+                            <div className="card-content white-text">
+                                {this.state.display}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <a className="col s6 waves-effect waves-light btn-large" onClick={()=>{this.flip()}}>Turn</a>
+                </div>
             </div>
-            <div className="back">
-            { this.state.other_side}
-            </div>
+        );
+    }
+}
+
+class PageNavigation extends React.Component {
+    // Navigates between different pages of the app
+
+    render () {
+        return (
+            <div className="row">
+                <div className="col s8"></div> 
+                <a className="col s4" href="/">Back</a>
             </div>
         );
     }
@@ -77,8 +105,9 @@ class CardDisplay extends React.Component {
 
     render () {
         return (
-            <div className="cardDisplay">
-            <Card card={this.fetchCardData()} />
+            <div>
+                <PageNavigation />
+                <Card card={this.fetchCardData()} />
             </div>
         );
     }
@@ -90,8 +119,8 @@ function getRandomInt (min, max ) {
 
 function fetchInitialData () {
     $.get('/get_cards', {'course': window.COURSE_NAME},  function (data) {
-        window.initialData = [];
-        window.initialData.push(data);
+        console.log(data.data.slice(0));
+        window.initialData = data.data;
         render (
             <CardDisplay />,
             document.getElementById ('container')
