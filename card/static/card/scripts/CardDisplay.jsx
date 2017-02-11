@@ -33,6 +33,12 @@ class CardDisplay extends React.Component {
             <div>
                 <PageNavigation />
                 <Card card={this.fetchCardData()} />
+                <div className="row">
+                    <span className="col l3" />
+                    <a className="col l2 waves-effect waves-light btn">&#60;</a>
+                    <span className="col l2" />
+                    <a className="col l2 waves-effect waves-light btn">></a>
+                </div>
             </div>
         );
     }

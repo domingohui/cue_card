@@ -58,12 +58,6 @@ class Card extends React.Component {
                     <div className="col l3"></div>
                 </div>
                 <div className="row">
-                    <span className="col l3" />
-                    <a className="col l2 waves-effect waves-light btn">&#60;</a>
-                    <span className="col l2" />
-                    <a className="col l2 waves-effect waves-light btn">></a>
-                </div>
-                <div className="row">
                     <a className="col s9 m3 l2 waves-effect waves-light btn-large" onClick={()=>{this.flip()}}>Turn</a>
                 </div>
             </div>
