@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "repository": "https://github.com/domingohui/cue_card",
     "scripts": {
-        "build-debug": "./node_modules/.bin/webpack --watch --display-error-details",
+        "build-debug": "./node_modules/.bin/webpack --watch --devtool source-map --display-error-details",
         "build": "./node_modules/.bin/webpack",
         "start": "./manage.py runserver"
     },

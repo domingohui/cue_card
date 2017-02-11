@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports=
 {
-    entry: './card/static/card/scripts/present_card.jsx',
+    entry: './card/static/card/scripts/App.jsx',
     module: {
         loaders: [
             {
