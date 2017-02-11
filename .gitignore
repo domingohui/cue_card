@@ -100,7 +100,6 @@ ENV/
 
 # nodejs
 node_modules/
-yarn.lock
 .yarn-integrity
 npm-debug.log
 
