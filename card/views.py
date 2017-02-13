@@ -19,5 +19,4 @@ def getCardData (request):
     if request.method == 'GET':
         serializer = Serializer.makeSerializer(Serializer.JSON)
         data = serializer.getAllCards(request.GET['course']);
-    print (data)
     return JsonResponse(data);

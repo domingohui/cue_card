@@ -29,6 +29,13 @@ class Card extends React.Component {
     }
     */
 
+    componentWillReceiveProps(nextProps) {
+        // As a child component, use this lifecycle method 
+        // for future re-rendering
+        this.card = nextProps.card;
+        this.setState( {display: this.card.cue_side} );
+    }
+
     flip () {
         if ( this.showing_cue ) {
             this.setState ({
