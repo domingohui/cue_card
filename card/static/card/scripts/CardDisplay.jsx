@@ -2,6 +2,7 @@ import React from 'react';
 import PageNavigation from './PageNavigation.jsx';
 import Card from './Card.jsx';
 import fetch from 'isomorphic-fetch'
+import Cookies from 'js-cookie';
 require('es6-promise').polyfill();
 
 function getRandomInt (min, max ) {
@@ -39,9 +40,18 @@ class CardDisplay extends React.Component {
     }
 
     updateCard (cardId) {
+        /*
+         * For Django to retrieve the csrf token, it must be in a FormData. 
+         * Since Django takes it from request.POST
+         * which only contains FormData!
+         */
+        let formdata = new FormData();
+        formdata.append('id', cardId);
+        formdata.append('csrfmiddlewaretoken', Cookies.get('csrftoken'));
         fetch('/update_counter/', {
             method: 'POST',
-            body: { id: cardId }
+            credentials: 'same-origin', //This is a must too
+            body: formdata
         }).then(response=>console.log(response));
     }
 
@@ -60,9 +70,9 @@ class CardDisplay extends React.Component {
                     <a 
                         onClick={()=>this.showNextCard()} 
                         className="col l2 waves-effect waves-light btn"
-                        >></a>
-                    </div>
+                    >></a>
                 </div>
+            </div>
         );
     }
 }

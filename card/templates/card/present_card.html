@@ -11,7 +11,7 @@
              white-space: pre-wrap;
              "></div>
         <head>
-            <div id="container"></div>
+            <div id="container">{% csrf_token %} </div>
             <script type="text/javascript">window.COURSE_NAME = "{{ course_name|safe }}";</script>
             {% load static %}
             <script src="{% static "card/build/frontend_bundle.js" %}"></script>
