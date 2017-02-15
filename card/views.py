@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
-from .serializer import Serializer
+from . import card_manager
 
 def presentCardsFromThisCourse(request, course):
     # Get cue card info]
@@ -10,13 +9,7 @@ def presentCardsFromThisCourse(request, course):
 
 
 def index(request):
-    data = Serializer().getAvailableCourses()
+    data = card_manager.getAvailableCourses()
     return render(request, "card/index.html", {'data': data})
 
 
-def getCardData (request):
-    data = ''
-    if request.method == 'GET':
-        serializer = Serializer.makeSerializer(Serializer.JSON)
-        data = serializer.getAllCards(request.GET['course']);
-    return JsonResponse(data);
